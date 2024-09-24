@@ -1,0 +1,19 @@
+﻿<h3>Calculator_Component</h3>
+<p>This component will help me convert between celsius to farenheit</p>
+
+<div class="mb-3">
+    <label class="form-label">Amount</label>
+    <NumberInput TValue="int" @bind-Value="@amount" Placeholder="Enter amount" />
+</div>
+<div class="mb-3">Entered Amount: @ConvertCtoF(amount)</div>
+
+@code {
+    //(1c x 9/5) + 32 = 33.8F
+    private int amount;
+
+    private decimal ConvertCtoF(decimal celsius)
+    {
+        return (celsius * (9 / 5)) + 32;
+    }
+}
+

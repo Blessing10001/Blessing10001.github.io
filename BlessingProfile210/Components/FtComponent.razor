@@ -1,0 +1,36 @@
+﻿<h3>FtComponent</h3>
+<p>This component will help me convert between feet to inches</p>
+
+
+<div class="mb-3">
+    <label class="form-label">Amount (feet)</label>
+    <NumberInput TValue="int" @bind-Value="@feet" Placeholder="Enter Feet" />
+
+    <label class="form-label">Amount (inches)</label>
+    <NumberInput TValue="int" @bind-Value="@inches" Placeholder="Enter inches" />
+
+    <Button @onclick= "() => FeetAndInchesToCM(feet, inches)">Calculate</Button>
+</div>
+<div class=" ="mb-3">Amount in CM: @centimeters</div>"
+
+
+@code {
+    private int feet;
+    private int inches;
+    private decimal centimeters;
+    private decimal FeetAndInchesToCM(int feet, int inches)
+    {
+        decimal ret = 0;
+        //Convert feet into inches
+        ret = feet * 12;
+        //ad the inches that were enetered
+        ret = ret + inches;
+        //convert inches into cm
+        ret = ret * 2.54m;
+        centimeters = ret;
+        return ret;
+
+    }
+
+   
+}
